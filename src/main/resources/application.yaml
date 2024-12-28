@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: SpringJwtAuth
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    primary:
+      jdbcUrl: jdbc:postgresql://localhost:5400/db_primary
+      username: admin
+      password: qwerqwer
+      driver-class-name: org.postgresql.Driver
+    secondary:
+      jdbcUrl: jdbc:postgresql://178.128.54.152:3245/devxampledb
+      username: devxample
+      password: dev@xample
+      driver-class-name: org.postgresql.Driver

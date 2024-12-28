@@ -1,6 +1,6 @@
 package com.acledabank.springjwtauth.security;
 
-import com.acledabank.springjwtauth.domain.User;
+import com.acledabank.springjwtauth.domain.primary.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

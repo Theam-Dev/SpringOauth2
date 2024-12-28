@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://system-db-rak:5100/db_system
+    password: qwerqwer
+    username: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  config:
+    activate:
+      on-profile: docker

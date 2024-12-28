@@ -39,7 +39,6 @@ public class SecurityConfig {
         auth.setPasswordEncoder(passwordEncoder);
         return auth;
     };
-    @Bean
     public JwtAuthenticationConverter jwtAuthenticationConverter() {
         Converter<Jwt, Collection<GrantedAuthority>> jwtGrantedAuthoritiesConverter = jwt -> {
             String id = jwt.getId();
@@ -50,7 +49,6 @@ public class SecurityConfig {
         var jwtAuthenticationConverter = new JwtAuthenticationConverter(); jwtAuthenticationConverter.setJwtGrantedAuthoritiesConverter(jwtGrantedAuthoritiesConverter);
         return jwtAuthenticationConverter;
     }
-
 
     @Bean
     JwtAuthenticationProvider jwtAuthenticationProvider(JwtDecoder refreshTokenJwtDecoder) {
@@ -63,10 +61,10 @@ public class SecurityConfig {
         http
 
                 .authorizeHttpRequests(request-> request
-                        .requestMatchers("/anonymous","/api/v1/auth/**").permitAll()
-                        .requestMatchers("/api/v1/admin/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read", "SCOPE_user:read", "SCOPE_user:write")
-                        .requestMatchers("/api/v1/manager/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read", "SCOPE_user:read")
-                        .requestMatchers("/api/v1/staff/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read")
+                        .requestMatchers("/anonymous","/api/v1/**").permitAll()
+//                        .requestMatchers("/api/v1/admin/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read", "SCOPE_user:read", "SCOPE_user:write")
+//                        .requestMatchers("/api/v1/manager/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read", "SCOPE_user:read")
+//                        .requestMatchers("/api/v1/staff/**").hasAnyAuthority("SCOPE_report:write", "SCOPE_report:read")
                         .anyRequest().authenticated()
                 );
                 http.oauth2ResourceServer(oauth2 -> oauth2.jwt(jwtConfigurer -> jwtConfigurer.decoder(accessTokenJwtDecoder)));

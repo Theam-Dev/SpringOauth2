@@ -1,11 +1,11 @@
 package com.acledabank.springjwtauth.security;
 
-import com.acledabank.springjwtauth.authority.AuthorityRepo;
-import com.acledabank.springjwtauth.domain.Authority;
-import com.acledabank.springjwtauth.domain.SecurityGroup;
-import com.acledabank.springjwtauth.domain.User;
-import com.acledabank.springjwtauth.securitygroup.SecurityGroupRepo;
-import com.acledabank.springjwtauth.users.UserRepo;
+import com.acledabank.springjwtauth.domain.primary.repository.AuthorityRepo;
+import com.acledabank.springjwtauth.domain.primary.model.Authority;
+import com.acledabank.springjwtauth.domain.primary.model.SecurityGroup;
+import com.acledabank.springjwtauth.domain.primary.model.User;
+import com.acledabank.springjwtauth.domain.primary.repository.SecurityGroupRepo;
+import com.acledabank.springjwtauth.domain.primary.repository.UserRepo;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,7 +22,7 @@ public class SecurityInit {
     private final UserRepo userRepo;
     private final SecurityGroupRepo securityGroupRepo;
     private final PasswordEncoder passwordEncoder;
-//    @PostConstruct
+ //@PostConstruct
     void init() {
         //user management
         Authority userRead = new Authority();

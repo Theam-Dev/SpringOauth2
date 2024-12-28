@@ -1,7 +1,7 @@
 package com.acledabank.springjwtauth.security;
 
-import com.acledabank.springjwtauth.domain.User;
-import com.acledabank.springjwtauth.users.UserRepo;
+import com.acledabank.springjwtauth.domain.primary.model.User;
+import com.acledabank.springjwtauth.domain.primary.repository.UserRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
